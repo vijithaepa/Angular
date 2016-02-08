@@ -82,7 +82,7 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 	                 ];
 	
 	$scope.customers = customers;
-	$scope.rowLimit = 3;
+	$scope.rowLimit = 8;
 	$scope.sortColumn = "name";
 	
 	$scope.reverseSort = false;
@@ -90,7 +90,7 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 		$scope.reverseSort = ($column.sortColumn == $column) ? !$scope.reverseSort : false;
 		$scope.sortColumn = $column;
 	}
-	
+
 	$scope.getSortClass = function($column){
 		if($scope.sortColumn == $column){
 			return $scope.reverseSort ? "assending" : "descending"
