@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html ng-app="dataRepeatModule">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body ng-controller="dataRepeatController">
+
+	<div>Companies :</div>
+	<ul ng-repeat="company in comapnies">
+		<li>{{$index}} - Company Name : {{company.name}}</li>
+		<ul ng-repeat="emp in company.employee ">
+			<li>Employee : {{$index}} - {{emp.name}}</li>
+		</ul>
+	</ul>
+
+	<script src="../js/angular.js"></script>
+	<script src="../js/customscript.js"></script>
+</body>
+</html>

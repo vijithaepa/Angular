@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html ng-app="myModule">
+<head>
+
+<title>Simple HTML</title>
+
+</head>
+<body ng-controller="myController">
+
+	<div>1 + 2 = {{1+2}}</div>
+
+	<div>
+		<h3>Greeting from custome JS : {{message}}</h3>
+	</div>
+	<div>
+		<h4>Personal Details</h4>
+		<p>First Name : {{person.firstName}}</p>
+		<p>Last Name : {{person.lastName}}</p>
+		<p>Age : {{person.age}}</p>
+		<p>Photo ID : </p> <img ng-src="{{person.photo}}" width="150px" height="200px" alt="{{person.firstName + ' photo'}}"/>
+	</div>
+	<script src="../js/angular.js"></script>
+	<script src="../js/customscript.js"></script>
+</body>
+</html>

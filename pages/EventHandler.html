@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html ng-app="eventModule">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="../css/custome.css" rel="stylesheet" />
+</head>
+<body ng-controller="eventController">
+	<table>
+		<th>Movie
+		</th>
+		<th>Likes
+		</th>
+		<th>Dislikes
+		</th>
+		<th>Action
+		</th>
+		<tr ng-repeat="movie in movies">
+			<td>{{movie.name}}</td>
+			<td>{{movie.like}}</td>
+			<td>{{movie.dislike}}</td>
+			<td><input type="button" value="like" ng-click="likes(movie)"><input
+				type="button" value="dis-like" ng-click="dislikes(movie)"></td>
+		</tr>
+	</table>
+	<script src="../js/angular.js"></script>
+	<script src="../js/customscript.js"></script>
+</body>
+</html>
