@@ -47,7 +47,7 @@ var dataApp = angular.module("dataRepeatModule", []).controller("dataRepeatContr
 		});
 
 /*
- * Data epeat module
+ * Data Repeat module
  */
 var dataApp = angular.module("eventModule", []).controller("eventController", function($scope) {
 			var movies = [{name: "ET", like: 0, dislike: 0},
@@ -65,3 +65,39 @@ var dataApp = angular.module("eventModule", []).controller("eventController", fu
 			}
 			
 		});
+
+/*
+ * Filter Module 
+ */
+var filterApp = angular.module("filterModule",[]).controller("filterController", function($scope){
+	
+	var customers = [{name:"ranath perera",dob: new Date("January 28, 1982"), gender: "Male", total: 500, due: 150},
+	                 {name:"Sidath Appu",dob: new Date("May 20, 1975"), gender: "Male", total: 600, due: 50},
+	                 {name:"Susith mohan",dob: new Date("June 18, 1972"), gender: "Male", total: 400, due: 175},
+	                 {name:"Lusa ukkua",dob: new Date("December 12, 1980"), gender: "Male", total: 1500, due: 350},
+	                 {name:"Ranja Samaya",dob: new Date("May 17, 1982"), gender: "Male", total: 11500, due: 1350},
+	                 {name:"Viji apa",dob: new Date("Octomber 26, 1972"), gender: "Male", total: 31500, due: 800},
+	                 {name:"Sam aka",dob: new Date("June 30, 1962"), gender: "Male", total: 7500, due: 1750},
+	                 {name:"beu rowana",dob: new Date("July 08, 1972"), gender: "Female", total: 1200, due: 550},
+	                 ];
+	
+	$scope.customers = customers;
+	$scope.rowLimit = 3;
+	$scope.sortColumn = "name";
+	
+	$scope.reverseSort = false;
+	$scope.sortData = function($column){
+		$scope.reverseSort = ($column.sortColumn == $column) ? !$scope.reverseSort : false;
+		$scope.sortColumn = $column;
+	}
+	
+	$scope.getSortClass = function($column){
+		if($scope.sortColumn == $column){
+			return $scope.reverseSort ? "assending" : "descending"
+		}
+		return "";
+	}
+});
+
+
+

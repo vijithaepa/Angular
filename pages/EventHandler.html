@@ -7,14 +7,14 @@
 </head>
 <body ng-controller="eventController">
 	<table>
-		<th>Movie
-		</th>
-		<th>Likes
-		</th>
-		<th>Dislikes
-		</th>
-		<th>Action
-		</th>
+		<thead>
+			<tr>
+				<th>Movie</th>
+				<th>Likes</th>
+				<th>Dislikes</th>
+				<th>Action</th>
+			</tr>
+		</thead>
 		<tr ng-repeat="movie in movies">
 			<td>{{movie.name}}</td>
 			<td>{{movie.like}}</td>

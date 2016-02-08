@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html ng-app="filterModule">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="../css/custome.css" rel="stylesheet" />
+</head>
+<body ng-controller="filterController">
+
+	<h4>Customer details</h4>
+
+	Number of Rows to display :
+	<input type="number" step="1" min="0" max="8" ng-model="rowLimit">
+	
+	Order BY : <select ng-model="sortColumn">
+		<option value="name">Name</option>	
+		<option value="dob">Date of Birth</option>
+		<option value="total">Total Amount</option>
+		<option value="-due">Due Amount</option>
+	</select>
+	
+	<table>
+		<thead>
+			<tr>
+				<th>Customer Name</th>
+				<th>Date Of Birth</th>
+				<th ng-click="sortData('gender')">Gender <div ng-class="getSortClass('gender')"></div></th>
+				<th>Total Amount</th>
+				<th>Due Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="customer in customers |limitTo : rowLimit | orderBy:sortColumn:reverseSort">
+				<td>{{customer.name | uppercase}}</td>
+				<td>{{customer.dob | date:"dd/MMMM/yyyy"}}</td>
+				<td>{{customer.gender | lowercase}}</td>
+				<td>{{customer.total | number:2}}</td>
+				<td>{{customer.due | currency: "AUD" : 3}}</td>
+			</tr>
+		</tbody>
+
+	</table>
+
+	<script src="../js/angular.js"></script>
+	<script src="../js/customscript.js"></script>
+</body>
+</html>
