@@ -67,7 +67,7 @@ var dataApp = angular.module("eventModule", []).controller("eventController", fu
 		});
 
 /*
- * Filter Module 
+ * Filter and Sort Module 
  */
 var filterApp = angular.module("filterModule",[]).controller("filterController", function($scope){
 	
@@ -87,17 +87,51 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 	
 	$scope.reverseSort = false;
 	$scope.sortData = function($column){
-		$scope.reverseSort = ($column.sortColumn == $column) ? !$scope.reverseSort : false;
+		$scope.reverseSort = ($scope.sortColumn == $column) ? !$scope.reverseSort : false;
+		
 		$scope.sortColumn = $column;
 	}
 
 	$scope.getSortClass = function($column){
 		if($scope.sortColumn == $column){
-			return $scope.reverseSort ? "assending" : "descending"
+			//alert ('Reverse - ' + $scope.reverseSort);
+			return $scope.reverseSort ? 'arrow-down' : 'arrow-down';
 		}
-		return "";
+		return '';
 	}
 });
 
+/*
+ * Search Module
+ */
 
+ var searchApp = angular.module("searchModule", [])
+						.controller("searchController", function($scope){
+	
+	var customers = [{name:"ranath perera",dob: new Date("January 28, 1982"), city: "Melbourne", gender: "Male", total: 500, due: 150},
+	                 {name:"Sidath Appu",dob: new Date("May 20, 1975"), city: "Perth", gender: "Male", total: 600, due: 50},
+	                 {name:"Susith mohan",dob: new Date("June 18, 1972"), city: "Sydney", gender: "Male", total: 400, due: 175},
+	                 {name:"Lusa ukkua",dob: new Date("December 12, 1980"), city: "Melbourne", gender: "Male", total: 1500, due: 350},
+	                 {name:"Ranja Samaya",dob: new Date("May 17, 1982"), city: "Sydney", gender: "Male", total: 11500, due: 1350},
+	                 {name:"Vijiapa",dob: new Date("Octomber 26, 1972"), city: "Melbourne", gender: "Male", total: 31500, due: 800},
+	                 {name:"Sam aka",dob: new Date("June 30, 1962"), city: "Brisbane", gender: "Male", total: 7500, due: 1750},
+	                 {name:"beu rowana",dob: new Date("July 08, 1972"), city: "Sydney", gender: "Female", total: 1200, due: 550},
+	                 ];
+	
+	$scope.customers = customers;
+	$scope.searchCombine = function($item){
+		
+		if($scope.searchMultiple == undefined){
+				return true;
+			} else {
+				if($item.name.toLowerCase().indexOf($scope.searchMultiple.toLowerCase()) != -1 ||
+				$item.city.toLowerCase().indexOf($scope.searchMultiple.toLowerCase()) != -1)
+					{
+					return true;
+					}
+			}
+			return false;
 
+		}
+							
+	});
