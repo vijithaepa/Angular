@@ -2,7 +2,7 @@
  * This is a custom script
  */
 
-// / <reference path="angular.js"/>
+/// <reference path="angular.js"/>
 /*
  * Creating the bootstrap module and Registering the controller to the module
  * using method chaining
@@ -104,7 +104,6 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 /*
  * Search Module
  */
-
  var searchApp = angular.module("searchModule", [])
 						.controller("searchController", function($scope){
 	
@@ -135,3 +134,52 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 		}
 							
 	});
+ 
+ /*
+  * Custom Filter Module
+  */
+ var customFilterApp = angular.module("customFilterModule", [])
+ 		.controller("customFilterController", function($scope){
+	 	var employees = [{name: "Sam", gender: 1, salary: 25000},
+						 {name: "Jane", gender: 2, salary: 22000}, 
+						 {name: "Mark", gender: 1, salary: 33000}, 
+						 {name: "Feb", gender: 3, salary: 27000}];
+		 
+		$scope.employees = employees;
+ });
+ 
+ /*
+  * Include Module
+  */
+ var includeFilterApp = angular.module("includeModule", [])
+	.controller("includeController", function($scope){
+	var employees = [{name: "Sam", gender: "Male", salary: 25000},
+					 {name: "Jane", gender: "Female", salary: 22000}, 
+					 {name: "Mark", gender: "Unspecified", salary: 33000}, 
+					 {name: "Feb", gender: "Male", salary: 27000}];
+	 
+	$scope.employees = employees;
+	$scope.employeeView = "EmployeeList.html";
+});
+ 
+ 
+
+ /*
+  * Web Service call Module
+  */
+ var wsApp = angular.module("wsModule", [])
+	.controller("wsController", function($scope, $http){
+
+		$http({method: 'GET',
+				url: 'http://api.wipmania.com/json',
+				headers: 'Authorization'})
+			.then(function($response){
+				$log.info($response);
+				$scope.currentPlace = $response.data;
+			}, function($reason){
+				$scope.error = $reason.data;
+				$log.info($reason);
+			});
+		
+});
+ 

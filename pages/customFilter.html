@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="customFilterModule">
+<head>
+<meta charset="ISO-8859-1">
+<title>Angular custom filter functionality</title>
+<link href="../css/custome.css" rel="stylesheet" />
+</head>
+<body ng-controller = "customFilterController">
+	<input type="checkbox" ng-model="hideSalry"/> Hide Salary
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Gender</th>
+				<th ng-hide="hideSalry">Salary</th>
+				<th ng-show="hideSalry">Salary</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr ng-repeat="employee in employees">
+				<td>{{employee.name}}</td>
+				<td>{{employee.gender | genderFilter}}</td>
+				<td ng-hide="hideSalry">{{employee.salary}}</td>
+				<td ng-show="hideSalry">####</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<script src="../js/angular.js"></script>
+	<script src="../js/customscript.js"></script>
+	<script src="../js/filters.js"></script>
+</body>
+</html>

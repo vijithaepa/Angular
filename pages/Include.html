@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html ng-app="includeModule">
+<head>
+<meta charset="ISO-8859-1">
+<title>Demonstrate the include functionality</title>
+
+<link href="../css/custome.css" rel="stylesheet" />
+</head>
+<body ng-controller="includeController">
+
+	Select view :
+	<select ng-model="employeeView">
+		<option value="EmployeeTable.html">Emplyee table</option>
+		<option value="EmployeeList.html">Emplyee List</option>
+	</select>
+
+	<div ng-include="employeeView"></div>
+
+	<script src="../js/angular.js"></script>
+	<script src="../js/customscript.js"></script>
+</body>
+</html>
