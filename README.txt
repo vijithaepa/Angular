@@ -63,3 +63,6 @@ filters.js - Contains the custom filter scripts.
 stringService.js - custom service script, provide method processString(inputString).
 
 angular.js - Angular script (version 1.5.x) downloade from https://angularjs.org/
+
+Following tutorial was refeered during this esamples.
+https://www.youtube.com/playlist?list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl
