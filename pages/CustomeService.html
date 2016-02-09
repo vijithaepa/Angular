@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Use of custom service</title>
+<link href="../css/custome.css" rel="stylesheet" />
+</head>
+<body ng-app="customServiceModule">
+	<div ng-controller="customServiceController">
+		<table>
+			<tr>
+				<td>Input Value :</td>
+				<td><input type="text" ng-model="input" placeholder="ASampleTextToPlaceHere"/></td>
+			</tr>
+			<tr>
+				<td>Output Value :</td>
+				<td><input type="text" ng-model="output" /></td>
+			</tr>
+		</table>
+		<input type="button" value="Process String"
+			ng-click="processText(input)" />
+	</div>
+	<script src="../js/angular.js"></script>
+	<script src="../js/customscript.js"></script>
+	<script src="../js/stringService.js"></script>
+</body>
+</html>

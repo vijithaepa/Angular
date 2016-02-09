@@ -135,9 +135,9 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 							
 	});
  
- /*
-  * Custom Filter Module
-  */
+/*
+ * Custom Filter Module
+ */
  var customFilterApp = angular.module("customFilterModule", [])
  		.controller("customFilterController", function($scope){
 	 	var employees = [{name: "Sam", gender: 1, salary: 25000},
@@ -148,9 +148,9 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 		$scope.employees = employees;
  });
  
- /*
-  * Include Module
-  */
+/*
+ * Include Module
+ */
  var includeFilterApp = angular.module("includeModule", [])
 	.controller("includeController", function($scope){
 	var employees = [{name: "Sam", gender: "Male", salary: 25000},
@@ -164,16 +164,17 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
  
  
 
- /*
-  * Web Service call Module
-  */
+/*
+ * Web Service call Module
+ */
  var wsApp = angular.module("wsModule", [])
 	.controller("wsController", function($scope, $http, $log){
 
-//		$scope.searchBy = "SR";
-//		searchCountry($scope.searchBy);
+		$scope.searchBy = "SR";
+		$scope.searchCountry = searchCountry;
+		searchCountry($scope.searchBy);
 		
-		$scope.searchCountry = function(searchBy) {
+		function searchCountry(searchBy) {
 			$http({method: 'GET',
 				url: 'http://services.groupkt.com/country/search?text=' + $scope.searchBy,
 				headers: 'Authorization'})
@@ -185,12 +186,23 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 				$log.info($reason);
 			});	
 		};
-		
-		
-//		$scope.searchCountry = function($searchBy){
-//			$scope.searchBy = $searchBy;
-//			
-//		};
-		
+
 });
+ 
+ 
+
+/*
+ * Custom Service call Module
+ */
+var customServiceApp = angular.module("customServiceModule", []).controller(
+		"customServiceController", function($scope, stringService) {
+
+			$scope.processText = function($input){
+				
+				$scope.output = stringService.processString($input);
+				
+			};
+			
+		});
+ 
  

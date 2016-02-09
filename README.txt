@@ -34,7 +34,7 @@ AngularJS
 ¦       Search.html
 ¦       SimpleHTML.html
 ¦       WebServiceCall.html
-¦
+¦       CustomeService.html
 
 		
 customFilter.html - demonstrate the ability to write custom filter using seperate filter scripts in "filter.js" and apply those filters on the html as "genderFilter". Row data has the integer values for "Gender", hence custom Filter will replace the integer values with Texts.
@@ -54,8 +54,12 @@ Search.html - Demonstrate the ability to filter search on fields or using custom
 
 WebServiceCall.html - Demonstrate the angular support for service call and handle the response.
 
+CustomeService.html - Demonstrates the custom build service("processString") in stringService.js, can be re-used in controllers.
+
 customscript.js - Contains all the java scripts used in the html pages (views)
 
 filters.js - Contains the custom filter scripts.
+
+stringService.js - custom service script, provide method processString(inputString).
 
 angular.js - Angular script (version 1.5.x) downloade from https://angularjs.org/
