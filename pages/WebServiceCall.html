@@ -7,9 +7,14 @@
 <body ng-app="wsModule">
 
 <div ng-controller = "wsController">
-	{{currentPlace}}
-	
-	<br /><br /> {{error}}
+	<br /><br /> 
+	<p class="error">{{error}}</p>
+	<input type="text" ng-model="searchBy" placeholder="Enter two letters and hit Search button"> <input type="button" ng-click="searchCountry(searchBy)" value="Search">
+	<div> Results :
+	<ul ng-repeat="country in countries.RestResponse.result">
+	<li>{{country.name}}</li>
+	</ul>
+	</div>
 </div>
 
 	<script src="../js/angular.js"></script>

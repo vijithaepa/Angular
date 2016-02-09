@@ -168,18 +168,29 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
   * Web Service call Module
   */
  var wsApp = angular.module("wsModule", [])
-	.controller("wsController", function($scope, $http){
+	.controller("wsController", function($scope, $http, $log){
 
-		$http({method: 'GET',
-				url: 'http://api.wipmania.com/json',
+//		$scope.searchBy = "SR";
+//		searchCountry($scope.searchBy);
+		
+		$scope.searchCountry = function(searchBy) {
+			$http({method: 'GET',
+				url: 'http://services.groupkt.com/country/search?text=' + $scope.searchBy,
 				headers: 'Authorization'})
 			.then(function($response){
 				$log.info($response);
-				$scope.currentPlace = $response.data;
+				$scope.countries = $response.data;
 			}, function($reason){
 				$scope.error = $reason.data;
 				$log.info($reason);
-			});
+			});	
+		};
+		
+		
+//		$scope.searchCountry = function($searchBy){
+//			$scope.searchBy = $searchBy;
+//			
+//		};
 		
 });
  
