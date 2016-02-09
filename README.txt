@@ -2,6 +2,41 @@ This contains the detail description on the technologies and method used in this
 
 This application demonstrate the simple usage of AngularJS basics. Following file developed to demonstrate it's each behaviour.
 
+Folder Structure
+-----------------
+AngularJS
+¦   README.txt
+¦
++---css
+¦       custome.css
+¦
++---img
+¦       images.jpg
+¦       left-arrow.gif
+¦       like.ico
+¦       right-arrow.gif
+¦       unlike.ico
+¦
++---js
+¦       angular.js
+¦       customscript.js
+¦       filters.js
+¦
++---pages
+¦       customFilter.html
+¦       DataBinding.html
+¦       EmployeeList.html
+¦       EmployeeTable.html
+¦       EventHandler.html
+¦       Filter.html
+¦       Include.html
+¦       Repeat.html
+¦       Search.html
+¦       SimpleHTML.html
+¦       WebServiceCall.html
+¦
+
+		
 customFilter.html - demonstrate the ability to write custom filter using seperate filter scripts in "filter.js" and apply those filters on the html as "genderFilter". Row data has the integer values for "Gender", hence custom Filter will replace the integer values with Texts.
 	Also demonstrate the show / Hide functionality
 	
@@ -18,3 +53,9 @@ Repeat.html - Demosntrate repeatative iteration throuhg a collection.
 Search.html - Demonstrate the ability to filter search on fields or using custom function to include more fields.
 
 WebServiceCall.html - Demonstrate the angular support for service call and handle the response.
+
+customscript.js - Contains all the java scripts used in the html pages (views)
+
+filters.js - Contains the custom filter scripts.
+
+angular.js - Angular script (version 1.5.x) downloade from https://angularjs.org/
