@@ -1,40 +1,84 @@
 This contains the detail description on the technologies and method used in this project.
 
-This application demonstrate the simple usage of AngularJS basics. Following file developed to demonstrate it's each behaviour.
+This application demonstrate the 
+1 - Simple usage of AngularJS basics. 
+2 - Simple Usage of Invoking Spring MVC application from AngularJS rest calls.
+
+Following file developed to demonstrate it's each behaviour.
+
 
 Folder Structure
 -----------------
+
 AngularJS
-¦   README.txt
-¦
-+---css
-¦       custome.css
-¦
-+---img
-¦       images.jpg
-¦       left-arrow.gif
-¦       like.ico
-¦       right-arrow.gif
-¦       unlike.ico
-¦
-+---js
-¦       angular.js
-¦       customscript.js
-¦       filters.js
-¦
-+---pages
-¦       customFilter.html
-¦       DataBinding.html
-¦       EmployeeList.html
-¦       EmployeeTable.html
-¦       EventHandler.html
-¦       Filter.html
-¦       Include.html
-¦       Repeat.html
-¦       Search.html
-¦       SimpleHTML.html
-¦       WebServiceCall.html
-¦       CustomeService.html
+|
+|   pom.xml
+|   README.txt
+\---src
+    +---main
+    |   +---java
+    |   |   \---com
+    |   |       \---angular
+    |   |           \---springmvc
+    |   |               +---configuration
+    |   |               |       CORSFilter.java
+    |   |               |       HelloWorldConfiguration.java
+    |   |               |       HelloWorldInitializer.java
+    |   |               |
+    |   |               +---controller
+    |   |               |       HelloWorldRestController.java
+    |   |               |       IndexController.java
+    |   |               |
+    |   |               +---model
+    |   |               |       User.java
+    |   |               |
+    |   |               \---service
+    |   |                       UserService.java
+    |   |                       UserServiceImpl.java
+    |   |
+    |   +---resources
+    |   \---webapp
+    |       +---static
+    |       |   +---css
+    |       |   |       app.css
+    |       |   |       bootstrap.css
+    |       |   |       custome.css
+    |       |   |
+    |       |   +---js
+    |       |   |   |   angular-route.js
+    |       |   |   |   angular.js
+    |       |   |   |   app.js
+    |       |   |   |   customscript.js
+    |       |   |   |   filters.js
+    |       |   |   |   stringService.js
+    |       |   |   |
+    |       |   |   +---controller
+    |       |   |   |       user_controller.js
+    |       |   |   |
+    |       |   |   \---service
+    |       |   |           user_service.js
+    |       |   |
+    |       |   \---pages
+    |       |           CustomeService.html
+    |       |           CustomFilter.html
+    |       |           DataBinding.html
+    |       |           EmployeeList.html
+    |       |           EmployeeTable.html
+    |       |           EventHandler.html
+    |       |           Filter.html
+    |       |           Include.html
+    |       |           Repeat.html
+    |       |           Search.html
+    |       |           SimpleHTML.html
+    |       |           WebServiceCall.html
+    |       |
+    |       \---WEB-INF
+    |           \---views
+    |                   UserManagement.jsp
+    |
+    \---test
+        +---java
+        \---resources
 
 		
 customFilter.html - demonstrate the ability to write custom filter using seperate filter scripts in "filter.js" and apply those filters on the html as "genderFilter". Row data has the integer values for "Gender", hence custom Filter will replace the integer values with Texts.
@@ -64,5 +108,34 @@ stringService.js - custom service script, provide method processString(inputStri
 
 angular.js - Angular script (version 1.5.x) downloade from https://angularjs.org/
 
+
+
+Building the Project.
+====================
+
+Pre-requisites
+--------------
+JDK 1.7
+Maven 2 or higher
+set java_home and m2_home.
+
+Steps:
+------
+run mvn clean package
+
+
+Running the application.
+========================
+Go to target folder (/AngularJS/target) and find the SpringAngularExample.war file
+Deploy it in the favorite application server
+Open an web browser and type url http://localhost:8080/SpringAngularExample
+
+If you want to run the each individual angular examples, type the below URL and replace the html file name with any of above
+http://localhost:8080/SpringAngularExample/static/pages/Include.html
+
+
+
 Following tutorial was refeered during this esamples.
+=====================================================
 https://www.youtube.com/playlist?list=PL6n9fhu94yhWKHkcL7RJmmXyxkuFB3KSl
+http://websystique.com/springmvc/spring-mvc-4-angularjs-example/
