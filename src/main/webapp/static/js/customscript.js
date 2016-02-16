@@ -56,12 +56,12 @@ var dataApp = angular.module("eventModule", []).controller("eventController", fu
 			              {name: "IP man", like: 0, dislike: 0}];
 			$scope.movies = movies;
 			
-			$scope.likes = function($movie){
-				$movie.like++;
+			$scope.likes = function(movie){
+				movie.like++;
 			}
 			
-			$scope.dislikes = function($movie){
-				$movie.dislike++;
+			$scope.dislikes = function(movie){
+				movie.dislike++;
 			}
 			
 		});
@@ -86,14 +86,14 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 	$scope.sortColumn = "name";
 	
 	$scope.reverseSort = false;
-	$scope.sortData = function($column){
-		$scope.reverseSort = ($scope.sortColumn == $column) ? !$scope.reverseSort : false;
+	$scope.sortData = function(column){
+		$scope.reverseSort = ($scope.sortColumn == column) ? !$scope.reverseSort : false;
 		
-		$scope.sortColumn = $column;
+		$scope.sortColumn = column;
 	}
 
-	$scope.getSortClass = function($column){
-		if($scope.sortColumn == $column){
+	$scope.getSortClass = function(column){
+		if($scope.sortColumn == column){
 			//alert ('Reverse - ' + $scope.reverseSort);
 			return $scope.reverseSort ? 'arrow-down' : 'arrow-down';
 		}
@@ -118,13 +118,13 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 	                 ];
 	
 	$scope.customers = customers;
-	$scope.searchCombine = function($item){
+	$scope.searchCombine = function(item){
 		
 		if($scope.searchMultiple == undefined){
 				return true;
 			} else {
-				if($item.name.toLowerCase().indexOf($scope.searchMultiple.toLowerCase()) != -1 ||
-				$item.city.toLowerCase().indexOf($scope.searchMultiple.toLowerCase()) != -1)
+				if(item.name.toLowerCase().indexOf($scope.searchMultiple.toLowerCase()) != -1 ||
+						item.city.toLowerCase().indexOf($scope.searchMultiple.toLowerCase()) != -1)
 					{
 					return true;
 					}
@@ -197,9 +197,9 @@ var filterApp = angular.module("filterModule",[]).controller("filterController",
 var customServiceApp = angular.module("customServiceModule", []).controller(
 		"customServiceController", function($scope, stringService) {
 
-			$scope.processText = function($input){
+			$scope.processText = function(input){
 				
-				$scope.output = stringService.processString($input);
+				$scope.output = stringService.processString(input);
 				
 			};
 			
